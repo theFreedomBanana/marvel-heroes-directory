@@ -1,0 +1,8 @@
+li {
+  list-style-type: none;
+  max-width: 33%;
+}
+
+li > img {
+  max-width: 100%;
+}
