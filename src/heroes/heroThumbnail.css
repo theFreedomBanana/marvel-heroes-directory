@@ -6,6 +6,19 @@ li {
 .hero-thumbnail-container {
   border: 1px solid #D9D9D9;
   border-radius: 2px;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  margin-right: -1px;
+  margin-top: -1px;
+
+}
+
+.overlay:hover {
+  background-color: #0000006B;
 }
 
 .thumbnail-img-container {
@@ -15,7 +28,7 @@ li {
 
 .thumbnail-img-container img {
   display: block;
-  margin: auto;
+  margin: 0.6px auto auto auto;
   max-width: 76%;
 }
 
@@ -44,13 +57,13 @@ li {
 }
 
 @media all and (min-width: 0px) and (max-width: 1079px) {
-  .thumbnail-img-container, .thumbnail-img-container img {
+  .overlay, .thumbnail-img-container, .thumbnail-img-container img {
     height: 35vh;
   }
 }
 
 @media all and (min-width: 1080px) {
-  .thumbnail-img-container, .thumbnail-img-container img {
+  .overlay, .thumbnail-img-container, .thumbnail-img-container img {
     height: 25vh;
   }
 }
