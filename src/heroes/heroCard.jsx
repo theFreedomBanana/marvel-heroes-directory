@@ -78,21 +78,21 @@ class HeroCard extends Component<Props, State> {
         </section>
 
         <section className="col-sm-12 col-lg-9">
-          <header>
+          <header className="hero-card-header">
             <h2>{name}</h2>
             <p>{description}</p>
           </header>
 
-          <article>
-            <h6>Comics:</h6>
+          <article className="hero-card-article">
+            <h6>Comics</h6>
             <ul>
               {comics.items && comics.items.map( comic => (
                 <li key={comic.name}>{comic.name}</li>
               ))}
             </ul>
           </article>
-          <article>
-            <h6>Series:</h6>
+          <article className="hero-card-article">
+            <h6>Series</h6>
             <ul>
               {series.items && series.items.map( serie => (
                 <li key={serie.name}>{serie.name}</li>
