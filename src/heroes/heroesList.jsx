@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from "react"
 import InfiniteScroll from "react-infinite-scroller"
+import HeroThumbnail from "./heroThumbnail"
 import "./heroesList.css"
 
 
@@ -53,12 +54,7 @@ class HeroesList extends Component<{}, State> {
           useWindow={true}
         >
           <ul className="container">
-            { heroes.map( heroe => (
-              <li key={heroe.id} className="col-sm-12 col-lg-4">
-                <img src={`${heroe.thumbnail.path}.${heroe.thumbnail.extension}`} alt={heroe.name} />
-                <h4>{heroe.name}</h4>
-              </li>
-            ))}
+            { heroes.map( hero => <HeroThumbnail key={hero.id} hero={hero}></HeroThumbnail> )}
           </ul>
         </InfiniteScroll>
       </div>
