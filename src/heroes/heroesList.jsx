@@ -2,7 +2,6 @@
 import React, { Component } from "react"
 import InfiniteScroll from "react-infinite-scroller"
 import HeroThumbnail from "./heroThumbnail"
-import "./heroesList.css"
 
 
 type State = {

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react"
+import { FaLink } from "react-icons/fa"
 import "./heroThumbnail.css"
 
 
@@ -29,15 +30,17 @@ class HeroThumbnail extends Component<Props, {}> {
 
     return(
       <li className="col-sm-12 col-lg-4">
-        <div className="heroThumbnailContainer">
-          <div className="thumbnailImgContainer">
+        <div className="hero-thumbnail-container">
+          <div className="thumbnail-img-container">
             <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt={hero.name} />
           </div>
-          <div className="thumbnailDetailsContainer">
+          <div className="thumbnail-infos-container">
             <h4>{hero.name}</h4>
-            { hero.urls[0] ? <a href={hero.urls[0].url} target="_blank">details</a> : null }
-            { hero.urls[1] ? <a href={hero.urls[1].url} target="_blank">wiki</a> : null }
-            { hero.urls[2] ? <a href={hero.urls[2].url} target="_blank">comiclink</a> : null }
+            <div className="links-container">
+              { hero.urls[0] ? <a href={hero.urls[0].url} target="_blank"><FaLink />details</a> : null }
+              { hero.urls[1] ? <a href={hero.urls[1].url} target="_blank"><FaLink />wiki</a> : null }
+              { hero.urls[2] ? <a href={hero.urls[2].url} target="_blank"><FaLink />comiclink</a> : null }
+            </div>
           </div>
         </div>
       </li>
