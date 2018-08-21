@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import HeroesList from "./heroes/heroesList"
-import { BrowserRouter, Route } from "react-router-dom"
+import HeroCard from "./heroes/heroCard"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 
 class App extends Component {
@@ -8,9 +9,16 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Route to="/" render={ () => (
-            <HeroesList></HeroesList>
-          )} />
+          <Switch>
+            <Route exact path="/" render={ () => (
+              <HeroesList></HeroesList>
+            )} />
+
+            <Route path="/characters/:characterId" render={ (routeParams) => (
+              <HeroCard routeParams={routeParams}></HeroCard>
+            )} />
+          </Switch>
+
         </BrowserRouter>
       </div>
     )
