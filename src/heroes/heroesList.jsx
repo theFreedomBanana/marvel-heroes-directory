@@ -2,6 +2,7 @@
 import React, { Component } from "react"
 import InfiniteScroll from "react-infinite-scroller"
 import HeroThumbnail from "./heroThumbnail"
+import Loader from "../utilities/loader"
 
 
 type State = {
@@ -48,7 +49,11 @@ class HeroesList extends Component<{}, State> {
         <InfiniteScroll
           loadMore={ () => this.fetchHeroes(offset) }
           hasMore={!listComplete}
-          loader={<div className="loader" key={offset}>Loading ...</div>}
+          loader={
+            <div className="loader" key="sheild-loader">
+              <Loader></Loader>
+            </div>
+          }
           threshold={500}
           useWindow={true}
         >

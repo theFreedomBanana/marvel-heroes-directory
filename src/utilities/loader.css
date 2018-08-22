@@ -1,0 +1,100 @@
+.shield {
+  background: #eee;
+  border: 15px solid #C73834;
+  border-radius: 50%;
+  height: 150px;
+  left: calc(50% - 75px);
+  margin: 75px auto;
+  top: calc(50% - 75px);
+  width: 150px;
+}
+
+.shield {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: Rotate;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes Rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.light {
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 85px 0 10px rgba(255, 255, 255, .1) inset;
+  position: absolute;
+  top: -15px;
+  width: 150px;
+  z-index: 4;
+}
+
+.light:before {
+  border-radius: 50%;
+  box-shadow: 45px 0 5px rgba(255, 255, 255, .1) inset;
+  content: "";
+  height: 90px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  width: 90px;
+  z-index: 5;
+}
+.centre {
+  background: #1E3065;
+  border: 15px solid #C73834;
+  border-radius: 50%;
+  height: 90px;
+  margin: 30px auto;
+  position: relative;
+  width: 90px;
+}
+
+.star {
+  border-bottom: 14px  solid #fff;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  left: 0;
+  right: 0;
+  height: 0px;
+  margin: 35px auto;
+  transform: rotate(35deg);
+  width: 0px;
+}
+
+.star:after {
+  border-bottom: 14px solid #fff;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  content: '';
+  display: block;
+  height: 0px;
+  left: -20px;
+  position: absolute;
+  transform: rotate(-70deg);
+  top: 0px;
+  width: 0px;
+}
+
+.star:before {
+  border-bottom: 15px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 0;
+  left: -12px;
+  position: relative;
+  top: -10px;
+  transform: rotate(-35deg);
+  width: 0;
+}
