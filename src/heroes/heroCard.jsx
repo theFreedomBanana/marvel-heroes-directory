@@ -70,6 +70,30 @@ class HeroCard extends Component<Props, State> {
 
   render() {
     const {name, description, imgUrl, comics, series} = this.state
+    const comicsList =
+      comics.items.length > 0 &&
+        (
+          <article className="hero-card-article">
+            <h6>Comics</h6>
+            <ul>
+              { comics.items.map( comic => (
+                <li key={comic.name}>{comic.name}</li>
+              ))}
+            </ul>
+          </article>
+        )
+    const seriesList =
+      series.items.length > 0 &&
+        (
+          <article className="hero-card-article">
+            <h6>Series</h6>
+            <ul>
+              { series.items.map( serie => (
+                <li key={serie.name}>{serie.name}</li>
+              ))}
+            </ul>
+          </article>
+        )
 
     return(
       <div className="container">
@@ -82,23 +106,8 @@ class HeroCard extends Component<Props, State> {
             <h2>{name}</h2>
             <p>{description}</p>
           </header>
-
-          <article className="hero-card-article">
-            <h6>Comics</h6>
-            <ul>
-              {comics.items && comics.items.map( comic => (
-                <li key={comic.name}>{comic.name}</li>
-              ))}
-            </ul>
-          </article>
-          <article className="hero-card-article">
-            <h6>Series</h6>
-            <ul>
-              {series.items && series.items.map( serie => (
-                <li key={serie.name}>{serie.name}</li>
-              ))}
-            </ul>
-          </article>
+          { comicsList }
+          { seriesList }
         </section>
       </div>
     )
