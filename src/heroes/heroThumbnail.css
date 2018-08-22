@@ -4,6 +4,7 @@ li {
 }
 
 .hero-thumbnail-container {
+  background-color: #FFFFFF;
   border: 1px solid #D9D9D9;
   border-radius: 2px;
   position: relative;
@@ -33,6 +34,7 @@ li {
 }
 
 .thumbnail-infos-container {
+  background-color: #F8F8F8;
   margin: 10px 0;
 }
 
