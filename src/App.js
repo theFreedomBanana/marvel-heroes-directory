@@ -1,7 +1,8 @@
 import React, { Component } from "react"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 import HeroesList from "./heroes/heroesList"
 import HeroCard from "./heroes/heroCard"
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Header from "./header/header"
 
 
 class App extends Component {
@@ -9,16 +10,19 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" render={ () => (
-              <HeroesList></HeroesList>
-            )} />
+          <div>
+            <Header></Header>
 
-            <Route path="/characters/:characterId" render={ (routeParams) => (
-              <HeroCard routeParams={routeParams}></HeroCard>
-            )} />
-          </Switch>
+            <Switch>
+              <Route exact path="/" render={ () => (
+                <HeroesList></HeroesList>
+              )} />
 
+              <Route path="/characters/:characterId" render={ (routeParams) => (
+                <HeroCard routeParams={routeParams}></HeroCard>
+              )} />
+            </Switch>
+          </div>
         </BrowserRouter>
       </div>
     )

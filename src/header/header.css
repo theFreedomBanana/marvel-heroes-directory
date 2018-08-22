@@ -1,0 +1,21 @@
+.header {
+  background-color: black;
+  height: 88px;
+  width: 100%;
+}
+
+.logo-container {
+  background-color: red;
+  height: 82px;
+  margin: 0;
+  padding: 3px;
+}
+
+.icon-marvel-logo-svg {
+  background: url(https://i.annihil.us/u/prod/misc/marvel.svg);
+  background-size: 200px 78px;
+  display: block;
+  height: 78px;
+  margin: auto;
+  width: 200px;
+}
