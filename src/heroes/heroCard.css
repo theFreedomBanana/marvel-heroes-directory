@@ -3,6 +3,7 @@ img {
 }
 
 .hero-card-header {
+  background-color: #F8F8F8;
   border: 1px solid #F3F3F3;
   padding: 10px 20px;
   margin-bottom: 30px;
