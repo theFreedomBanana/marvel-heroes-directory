@@ -7,7 +7,14 @@ li {
   background-color: #FFFFFF;
   border: 1px solid #D9D9D9;
   border-radius: 2px;
+  box-shadow: 6px 5px 9px #D7D7D7;
   position: relative;
+  transition-duration: 0.5s;
+  transition-property: box-shadow;
+}
+
+.hero-thumbnail-container:hover {
+    box-shadow: 12px 11px 6px #b9b9b9;
 }
 
 .overlay {
