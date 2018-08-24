@@ -1,4 +1,5 @@
-img {
+.hero-card img {
+  box-shadow: 7px 6px 8px #929292;
   max-width: 100%
 }
 

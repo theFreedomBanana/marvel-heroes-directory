@@ -96,7 +96,7 @@ class HeroCard extends Component<Props, State> {
         )
 
     return(
-      <div className="container">
+      <div className="container hero-card">
         <section className="col-sm-12 col-lg-3">
           <img src={imgUrl} alt={name} />
         </section>
