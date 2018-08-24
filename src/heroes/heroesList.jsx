@@ -26,8 +26,9 @@ class HeroesList extends Component<{}, State> {
   fetchHeroes(offset: number = 0) {
     const url = "https://gateway.marvel.com:443/v1/public/characters"
     const apiKey = "6c3b02b3371becf9e0a3b670e224e35a"
+    const limit = 21
 
-    fetch(`${url}?apikey=${apiKey}&offset=${offset}`)
+    fetch(`${url}?apikey=${apiKey}&offset=${offset}&limit=${limit}`)
       .then( res => (
         res.json()
       ))
