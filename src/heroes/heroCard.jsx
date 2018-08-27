@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react"
+import { fetchData } from "../services/httpRequests.js"
 import "./heroCard.css"
 
 
@@ -41,20 +42,13 @@ class HeroCard extends Component<Props, State> {
         items: [],
       },
     }
-  }
 
-  componentDidMount() {
-    this.fetchHero(this.state.id)
-  }
+    const URL = "https://gateway.marvel.com:443/v1/public/characters"
 
-  fetchHero(characterId: number) {
-    const url = "https://gateway.marvel.com:443/v1/public/characters"
-    const apiKey = "6c3b02b3371becf9e0a3b670e224e35a"
-
-    fetch(`${url}/${characterId}?apikey=${apiKey}`)
-      .then( res => (
-        res.json()
-      ))
+    fetchData({
+      url: URL,
+      requestParams: [this.state.id],
+    })
       .then( res => {
         const {name, description, thumbnail, comics, series} = res.data.results[0]
 
@@ -67,6 +61,7 @@ class HeroCard extends Component<Props, State> {
         }))
       })
   }
+
 
   render() {
     const {name, description, imgUrl, comics, series} = this.state

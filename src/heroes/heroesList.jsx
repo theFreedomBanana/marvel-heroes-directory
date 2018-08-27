@@ -3,35 +3,39 @@ import React, { Component } from "react"
 import InfiniteScroll from "react-infinite-scroller"
 import HeroThumbnail from "./heroThumbnail"
 import Loader from "../utilities/loader"
+import { fetchData } from "../services/httpRequests.js"
 
+
+type Props = {
+  data: Object,
+  fetchData: Function,
+}
 
 type State = {
   heroes: Array<Object>,
-  offset: number,
   listComplete: boolean,
+  offset: number,
 };
 
 
-class HeroesList extends Component<{}, State> {
-  constructor(props: {}) {
+class HeroesList extends Component<Props, State> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
       heroes: [],
-      offset: 0,
       listComplete: false,
+      offset: 0,
     }
   }
 
-  fetchHeroes(offset: number = 0) {
-    const url = "https://gateway.marvel.com:443/v1/public/characters"
-    const apiKey = "6c3b02b3371becf9e0a3b670e224e35a"
-    const limit = 21
+  updateHeroesList(offset: number = 0, limit: number = 21) {
+    const URL = "https://gateway.marvel.com:443/v1/public/characters"
 
-    fetch(`${url}?apikey=${apiKey}&offset=${offset}&limit=${limit}`)
-      .then( res => (
-        res.json()
-      ))
+    fetchData({
+      url: URL,
+      queryParams: {offset, limit},
+    })
       .then( res => {
         this.setState( (prevState, prevProps) => ({
           heroes: prevState.heroes.concat(res.data.results),
@@ -43,25 +47,29 @@ class HeroesList extends Component<{}, State> {
 
 
   render() {
-    const { heroes, offset, listComplete } = this.state
+    const { heroes, offset } = this.state
 
     return(
       <div>
-        <InfiniteScroll
-          loadMore={ () => this.fetchHeroes(offset) }
-          hasMore={!listComplete}
-          loader={
-            <div className="loader" key="sheild-loader">
-              <Loader></Loader>
-            </div>
-          }
-          threshold={500}
-          useWindow={true}
-        >
-          <ul className="container">
-            { heroes.map( hero => <HeroThumbnail key={hero.id} hero={hero}></HeroThumbnail> )}
-          </ul>
-        </InfiniteScroll>
+        { heroes
+          ?
+          <InfiniteScroll
+            loadMore={ () => this.updateHeroesList(offset) }
+            hasMore={!this.state.listComplete}
+            loader={
+              <div className="loader" key="sheild-loader">
+                <Loader></Loader>
+              </div>
+            }
+            threshold={250}
+            useWindow={true}>
+            <ul className="container">
+              { heroes.map( hero => <HeroThumbnail key={hero.id} hero={hero}></HeroThumbnail> )}
+            </ul>
+          </InfiniteScroll>
+          :
+          null
+        }
       </div>
     )
   }
